@@ -1,4 +1,4 @@
-package model;
+package biblio.model;
 
 import java.util.Set;
 
@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(name = "livre")
 public class Livre {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(name = "titre")
@@ -74,7 +74,9 @@ public class Livre {
 		this.auteur = auteur;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -82,5 +84,4 @@ public class Livre {
 		return "Livre [id=" + id + ", titre=" + titre + ", auteur=" + auteur + "]";
 	}
 
-	
 }

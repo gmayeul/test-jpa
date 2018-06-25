@@ -3,14 +3,48 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
+
+	<!-- BIBLIO -->
 	<persistence-unit name="pu_essai" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/biblio_test_jpa" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mariadb://localhost:3306/biblio_test_jpa" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
 			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
+
+	<!-- BANQUE -->
+	<persistence-unit name="banque" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>banque.model.Banque</class>
+		<class>banque.model.Client</class>
+		<class>banque.model.Compte</class>
+		<class>banque.model.LivretA</class>
+		<class>banque.model.AssuranceVie</class>
+		<class>banque.model.Operation</class>
+		<class>banque.model.Virement</class>
+		<properties>
+			<!-- desactiver l'autodetection des classes de type @Entity -->
+			<property name="hibernate.archive.autodetection" value="" />
+			<!-- Activation de la génération des tables manquantes uniquement -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- Drop and create à chaque redémarrage -->
+			<property name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+
+			<!-- Affichage des requêtes SQL -->
+			<property name="hibernate.show_sql" value="true" />
+			<!-- Paramètres d'accès à la BDD -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/banque" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
+
 		</properties>
 	</persistence-unit>
 </persistence>

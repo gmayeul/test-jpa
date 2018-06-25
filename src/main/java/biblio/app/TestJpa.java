@@ -1,10 +1,11 @@
+package biblio.app;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import model.Emprunt;
-import model.Livre;
+import biblio.model.Emprunt;
+import biblio.model.Livre;
 
 public class TestJpa {
 

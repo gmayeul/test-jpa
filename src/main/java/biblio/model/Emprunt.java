@@ -1,4 +1,4 @@
-package model;
+package biblio.model;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -21,10 +21,10 @@ public class Emprunt {
 	private int id;
 
 	@Column(name = "date_debut")
-	private LocalDateTime date_debut;
+	private LocalDateTime dateDebut;
 
 	@Column(name = "date_fin")
-	private LocalDateTime date_fin;
+	private LocalDateTime dateFin;
 
 	@Column(name = "delai")
 	private int delai;
@@ -52,33 +52,33 @@ public class Emprunt {
 	}
 
 	/**
-	 * @return the date_debut
+	 * @return the dateDebut
 	 */
 	public LocalDateTime getDate_debut() {
-		return date_debut;
+		return dateDebut;
 	}
 
 	/**
 	 * @param date_debut
-	 *            the date_debut to set
+	 *            the dateDebut to set
 	 */
 	public void setDate_debut(LocalDateTime date_debut) {
-		this.date_debut = date_debut;
+		this.dateDebut = date_debut;
 	}
 
 	/**
-	 * @return the date_fin
+	 * @return the dateFin
 	 */
 	public LocalDateTime getDate_fin() {
-		return date_fin;
+		return dateFin;
 	}
 
 	/**
 	 * @param date_fin
-	 *            the date_fin to set
+	 *            the dateFin to set
 	 */
 	public void setDate_fin(LocalDateTime date_fin) {
-		this.date_fin = date_fin;
+		this.dateFin = date_fin;
 	}
 
 	/**
@@ -133,6 +133,6 @@ public class Emprunt {
 	 */
 	@Override
 	public String toString() {
-		return "Emprunt [id=" + id + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", delai=" + delai + "]";
+		return "Emprunt [id=" + id + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", delai=" + delai + "]";
 	}
 }

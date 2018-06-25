@@ -1,4 +1,4 @@
-package model;
+package biblio.model;
 
 import java.util.Set;
 
@@ -11,19 +11,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="client")
+@Table(name = "client")
 public class Client {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="nom")
+
+	@Column(name = "nom")
 	private String nom;
-	
-	@Column(name="prenom")
+
+	@Column(name = "prenom")
 	private String prenom;
-	
-	@OneToMany(mappedBy="client")
+
+	@OneToMany(mappedBy = "client")
 	private Set<Emprunt> emprunts;
 
 	/**
@@ -34,7 +34,8 @@ public class Client {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -48,7 +49,8 @@ public class Client {
 	}
 
 	/**
-	 * @param nom the nom to set
+	 * @param nom
+	 *            the nom to set
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -62,7 +64,8 @@ public class Client {
 	}
 
 	/**
-	 * @param prenom the prenom to set
+	 * @param prenom
+	 *            the prenom to set
 	 */
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
@@ -76,7 +79,8 @@ public class Client {
 	}
 
 	/**
-	 * @param emprunts the emprunts to set
+	 * @param emprunts
+	 *            the emprunts to set
 	 */
 	public void setEmprunts(Set<Emprunt> emprunts) {
 		this.emprunts = emprunts;
