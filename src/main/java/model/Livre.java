@@ -1,21 +1,33 @@
 package model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="livre")
+@Table(name = "livre")
 public class Livre {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="titre")
+
+	@Column(name = "titre")
 	private String titre;
-	
-	@Column(name="auteur")
+
+	@Column(name = "auteur")
 	private String auteur;
+
+	@ManyToMany
+	@JoinTable(name = "compo", joinColumns = @JoinColumn(name = "id_liv", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_emp", referencedColumnName = "id"))
+	private Set<Emprunt> emprunts;
 
 	/**
 	 * @return the id
@@ -25,7 +37,8 @@ public class Livre {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -39,7 +52,8 @@ public class Livre {
 	}
 
 	/**
-	 * @param titre the titre to set
+	 * @param titre
+	 *            the titre to set
 	 */
 	public void setTitre(String titre) {
 		this.titre = titre;
@@ -53,13 +67,20 @@ public class Livre {
 	}
 
 	/**
-	 * @param auteur the auteur to set
+	 * @param auteur
+	 *            the auteur to set
 	 */
 	public void setAuteur(String auteur) {
 		this.auteur = auteur;
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
 	public String toString() {
-		return "[" + this.getId() + "] " + this.getAuteur() + " - " + this.getTitre();
+		return "Livre [id=" + id + ", titre=" + titre + ", auteur=" + auteur + "]";
 	}
+
+	
 }
